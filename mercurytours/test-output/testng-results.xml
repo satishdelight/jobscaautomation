@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-08-03T02:25:00Z" name="Default suite" finished-at="2021-08-03T02:25:20Z" duration-ms="19526">
+    <groups>
+    </groups>
+    <test started-at="2021-08-03T02:25:00Z" name="Default test" finished-at="2021-08-03T02:25:20Z" duration-ms="19526">
+      <class name="itjobsca.Testitjobsca">
+        <test-method is-config="true" signature="setup()[pri:0, instance:itjobsca.Testitjobsca@7aaca91a]" started-at="2021-08-03T02:25:00Z" name="setup" finished-at="2021-08-03T02:25:14Z" duration-ms="13670" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="selectedEmployers()[pri:3, instance:itjobsca.Testitjobsca@7aaca91a]" started-at="2021-08-03T02:25:14Z" name="selectedEmployers" finished-at="2021-08-03T02:25:19Z" duration-ms="5306" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectedEmployers -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:itjobsca.Testitjobsca@7aaca91a]" started-at="2021-08-03T02:25:19Z" name="tearDown" finished-at="2021-08-03T02:25:20Z" duration-ms="531" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- itjobsca.Testitjobsca -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
