@@ -10,7 +10,7 @@ public class WebdriverUtil {
 
 		switch (browser) {
 		case "CHROME":
-			String chromeDriverPath = "/Users/satishtamilselvan/eclipse-workspace/mercurytours/drivers/chromedriver 6";
+			String chromeDriverPath = "/mercurytours/drivers/chromedriver 6";
 			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 			driver = new ChromeDriver();
 			break;

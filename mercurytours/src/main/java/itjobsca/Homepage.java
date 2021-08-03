@@ -27,20 +27,20 @@ public class Homepage {
 	@FindBy(xpath = "//button[@type ='submit' and @class ='btn-submit black']")
 	WebElement FindaJob;
 
-//	 @FindBy(xpath="//div[@data-location='Quebec']")
-//	 WebElement selectProvinceByCategory;
-
 	@FindBy(linkText = "Show all employers")
 	WebElement Showallemployers;
-
-	// @FindBy(linkText="Concordia University")
-	// WebElement clcikConcordiaUniv;
 
 	@FindBy(linkText = "BROWSE BY LOCATION")
 	WebElement clickBrowseByLocation;
 
 	@FindBy(linkText = "QA, Tester, Debug")
 	WebElement selectTestingCategory;
+	
+	@FindBy(xpath="(//a[@id='clear-history-btn'])[1]")
+	WebElement clearHistory_Homepage;
+	
+	@FindBy(xpath="//div[@class='input-fields-wrapper']//div[@class='field search-location']//input[@name='location']")
+	WebElement clearLocationFIeld;
 
 	// constructor
 	public Homepage(WebDriver driver3) {
@@ -48,17 +48,30 @@ public class Homepage {
 		PageFactory.initElements(driver, this);
 	}
 
+	//method to clear history in home page if present
+	public void clearHistory_Homepage()
+	{
+		if(clearHistory_Homepage.isDisplayed())
+		clearHistory_Homepage.click();
+		
+	}
+	//clear location in homepage
+	public void clearLocationField( )
+	{
+		clearLocationFIeld.clear();
+	}
+	
 	// method to enter keyword search
 	public void EnterSearchKeyword(String Keyword) {
 		searchKeyword.clear();
-		searchKeyword.sendKeys("Selenium");
+		searchKeyword.sendKeys(Keyword);
 
-	}
+	}																											
 
 	// method to click findajob
 	public void clickFindajob() {
 		FindaJob.click();
-	}
+	}	
 
 	// method to select location from category
 	public void selectProvinceByCategory(String Province) {
@@ -184,7 +197,7 @@ public class Homepage {
 	public void selectALetter_browseByEmployer(String letter) {
 		WebElement selectALetter = driver.findElement(By.xpath("//a[text()='" + letter + "']"));
 		System.out.println(selectALetter.getText());
-		
+
 		selectALetter.click();
 
 		System.out.println("selectALetter_browseByEmployer");

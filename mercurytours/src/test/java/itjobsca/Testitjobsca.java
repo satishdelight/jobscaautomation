@@ -25,7 +25,7 @@ public class Testitjobsca {
 	@BeforeMethod
 	public static void setup() {
 
-		driver = WebdriverUtil.getWebDriver("FIREFOX");
+		driver = WebdriverUtil.getWebDriver("CHROME");
 
 		// maximizing the browser window	
 		driver.manage().window().maximize();
@@ -42,6 +42,7 @@ public class Testitjobsca {
 	public void filterJobsSearchByLocation() throws InterruptedException {
 
 		Homepage objhomepage = new Homepage(driver);
+	
 		// enter job keywords
 		objhomepage.EnterSearchKeyword("Selenium");
 		objhomepage.clearStateOrProvinceInputBox();
@@ -50,6 +51,7 @@ public class Testitjobsca {
 		Thread.sleep(5000);
 		objhomepage.selectProvinceByCategory("Ontario");
 		objhomepage.verifyJobSearch("Selenium");
+		
 		
 
 		
@@ -65,7 +67,7 @@ public class Testitjobsca {
 		System.out.println("10 selected");
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 	public void selectedEmployers() {
 		Homepage objhomepage = new Homepage(driver);
 
@@ -110,7 +112,24 @@ public class Testitjobsca {
 		}
 		
 	}
-
+	
+	//method to verifythe keyword search is present in RECENT SEARCH
+	@Test(priority=5, enabled = true)
+	public void verifyRecentSearches() {
+		
+		Homepage objhomepage = new Homepage(driver);
+		SearchPage objSearchPage = new SearchPage(driver);
+		
+		objhomepage.clearHistory_Homepage();
+		objhomepage.clearLocationField();
+		objhomepage.EnterSearchKeyword("selenium");
+		objhomepage.clickFindajob();
+		objSearchPage.verifyRecentSearch("selenium");
+		
+		
+	}
+	
+  
 	@AfterClass
 	public static void tearDown() throws IOException {
 		driver.quit();
